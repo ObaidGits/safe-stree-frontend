@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+Disallow: /admin/
+Disallow: /login
+Disallow: /signup
+Disallow: /profile
+Disallow: /edit-profile
+Disallow: /safe-route
+
+Sitemap: https://example.com/sitemap.xml

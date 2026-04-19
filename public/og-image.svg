@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="SafeStree women safety platform">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#10243f" />
+      <stop offset="100%" stop-color="#0e5e6f" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <circle cx="170" cy="128" r="220" fill="#ffffff" fill-opacity="0.08" />
+  <circle cx="1060" cy="560" r="260" fill="#ffffff" fill-opacity="0.06" />
+  <g fill="#ffffff" font-family="Roboto, Arial, sans-serif">
+    <text x="100" y="280" font-size="86" font-weight="700">SafeStree</text>
+    <text x="100" y="352" font-size="36" font-weight="500" fill-opacity="0.92">Women Safety Platform</text>
+    <text x="100" y="420" font-size="30" fill-opacity="0.86">
+      One-tap SOS, live emergency visibility, and safer route guidance.
+    </text>
+  </g>
+</svg>
