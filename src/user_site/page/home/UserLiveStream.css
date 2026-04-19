@@ -1,0 +1,321 @@
+/* User Live Stream Styles */
+
+.user-live-stream {
+  /* Container for live stream UI */
+  position: relative;
+  z-index: 9997;
+}
+
+/* ============ Request Modal ============ */
+.stream-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.stream-modal {
+  background: linear-gradient(145deg, #1e293b, #0f172a);
+  border-radius: 20px;
+  padding: 32px 40px;
+  max-width: 420px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+  animation: slideUp 0.4s ease-out;
+}
+
+.stream-modal-icon {
+  font-size: 56px;
+  margin-bottom: 16px;
+  animation: pulse 2s infinite;
+}
+
+.stream-modal h2 {
+  color: #fff;
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0 0 12px;
+}
+
+.stream-modal p {
+  color: #94a3b8;
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0 0 24px;
+}
+
+.stream-modal-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.stream-btn {
+  flex: 1;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.stream-btn.reject {
+  background: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.stream-btn.reject:hover {
+  background: rgba(239, 68, 68, 0.3);
+}
+
+.stream-btn.accept {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: white;
+}
+
+.stream-btn.accept:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(34, 197, 94, 0.3);
+}
+
+/* ============ Active Streaming Panel ============ */
+.stream-active-panel {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: linear-gradient(145deg, #1e293b, #0f172a);
+  border-radius: 16px;
+  padding: 16px;
+  width: 320px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  z-index: 9998;
+  animation: slideInRight 0.4s ease-out;
+}
+
+.stream-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.stream-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  animation: blink 1.5s infinite;
+}
+
+.status-dot.connecting {
+  background: #f59e0b;
+}
+
+.status-dot.connected {
+  background: #22c55e;
+}
+
+.status-dot.failed {
+  background: #ef4444;
+  animation: none;
+}
+
+.status-text {
+  color: #e2e8f0;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.admin-viewing-badge {
+  background: rgba(34, 197, 94, 0.2);
+  color: #22c55e;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.stream-preview {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #000;
+  margin-bottom: 12px;
+}
+
+.preview-video {
+  width: 100%;
+  height: 180px;
+  min-height: 180px;
+  object-fit: cover;
+  display: block;
+  background: #111;
+}
+
+.preview-overlay {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+}
+
+.live-badge {
+  background: rgba(239, 68, 68, 0.9);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  animation: pulse 1.5s infinite;
+}
+
+.stream-error {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  margin-bottom: 12px;
+}
+
+.stream-btn.stop {
+  width: 100%;
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white;
+}
+
+.stream-btn.stop:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(239, 68, 68, 0.3);
+}
+
+/* ============ Animations ============ */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* ============ Mobile Responsive ============ */
+@media (max-width: 480px) {
+  .stream-active-panel {
+    bottom: 10px;
+    right: 10px;
+    left: 10px;
+    width: auto;
+  }
+
+  .stream-modal {
+    padding: 24px;
+    margin: 10px;
+  }
+}
+
+/* ============ Modal Info & Hint ============ */
+.stream-modal-info {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.stream-modal-info .info-item {
+  background: rgba(34, 197, 94, 0.1);
+  color: #22c55e;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.stream-modal-hint {
+  color: #64748b;
+  font-size: 12px;
+  margin-top: 16px !important;
+  margin-bottom: 0 !important;
+}
+
+/* ============ Connection Status Indicator ============ */
+.connection-status {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  z-index: 9999;
+  cursor: default;
+  transition: all 0.3s ease;
+}
+
+.connection-status.registered {
+  background: #22c55e;
+  box-shadow: 0 0 8px rgba(34, 197, 94, 0.5);
+}
+
+.connection-status.not-registered {
+  background: #f59e0b;
+  animation: pulse 1.5s infinite;
+}
+
+/* Hide in production - set to display: none if needed */
+.connection-status {
+  opacity: 0.6;
+}
+
+.connection-status:hover {
+  opacity: 1;
+  transform: scale(1.5);
+}
+
+/* ============ Status Dot Idle State ============ */
+.status-dot.idle {
+  background: #64748b;
+  animation: pulse 1.5s infinite;
+}
+

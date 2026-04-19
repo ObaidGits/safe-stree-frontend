@@ -1,0 +1,305 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap');
+
+.ws-admin-auth-page {
+  --ws-bg: #090f17;
+  --ws-surface: rgba(20, 25, 37, 0.9);
+  --ws-border: rgba(255, 123, 109, 0.34);
+  --ws-primary: #ff4c4c;
+  --ws-primary-soft: #ff7d63;
+  --ws-accent: #63dfc7;
+  --ws-text: #edf2fb;
+  --ws-text-muted: #c4cddf;
+  --ws-shadow: 0 24px 64px rgba(0, 0, 0, 0.45);
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  color: var(--ws-text);
+  font-family: 'Manrope', sans-serif;
+  background:
+    radial-gradient(860px 420px at 98% -10%, rgba(255, 78, 78, 0.24), transparent 58%),
+    radial-gradient(700px 380px at -12% 82%, rgba(99, 223, 199, 0.16), transparent 56%),
+    linear-gradient(145deg, #090f17 0%, #060a10 74%, #04060b 100%);
+  display: grid;
+  place-items: center;
+  padding: 1.25rem;
+}
+
+.ws-admin-auth-glow {
+  position: absolute;
+  pointer-events: none;
+  filter: blur(58px);
+}
+
+.ws-admin-auth-glow-top {
+  right: -140px;
+  top: 80px;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle at center, rgba(255, 88, 88, 0.2), transparent 68%);
+}
+
+.ws-admin-auth-glow-bottom {
+  left: -160px;
+  bottom: 100px;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle at center, rgba(99, 223, 199, 0.16), transparent 70%);
+}
+
+.ws-admin-auth-shell {
+  position: relative;
+  z-index: 1;
+  width: min(1120px, 100%);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-radius: 22px;
+  border: 1px solid rgba(255, 115, 101, 0.26);
+  background: linear-gradient(160deg, rgba(17, 22, 32, 0.96), rgba(11, 15, 24, 0.94));
+  box-shadow: var(--ws-shadow);
+  overflow: hidden;
+}
+
+.ws-admin-auth-hero {
+  padding: clamp(1.2rem, 3vw, 2rem);
+  border-right: 1px solid rgba(255, 119, 104, 0.2);
+  background: linear-gradient(170deg, rgba(26, 25, 34, 0.56), rgba(12, 16, 24, 0.16));
+}
+
+.ws-admin-auth-eyebrow {
+  color: #ffbc90;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-family: 'Sora', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.ws-admin-auth-hero h1 {
+  margin-top: 0.7rem;
+  color: #fff;
+  font-family: 'Sora', sans-serif;
+  line-height: 1.14;
+  font-size: clamp(1.52rem, 3.6vw, 2.45rem);
+  max-width: 16ch;
+}
+
+.ws-admin-auth-hero p {
+  margin-top: 0.88rem;
+  color: #d4deee;
+  line-height: 1.68;
+}
+
+.ws-admin-auth-list {
+  margin-top: 1.08rem;
+  list-style: none;
+  display: grid;
+  gap: 0.58rem;
+}
+
+.ws-admin-auth-list li {
+  border-radius: 12px;
+  border: 1px solid rgba(255, 141, 112, 0.28);
+  background: rgba(42, 32, 39, 0.62);
+  color: #f6dccd;
+  font-size: 0.92rem;
+  font-weight: 600;
+  padding: 0.62rem 0.68rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ws-admin-auth-list svg {
+  color: var(--ws-accent);
+}
+
+.ws-admin-auth-card {
+  padding: clamp(1.2rem, 3vw, 2rem);
+  background: linear-gradient(170deg, rgba(15, 20, 30, 0.84), rgba(14, 18, 28, 0.96));
+}
+
+.ws-admin-auth-head h2 {
+  color: #fff;
+  font-family: 'Sora', sans-serif;
+  font-size: 1.56rem;
+}
+
+.ws-admin-auth-head p {
+  margin-top: 0.38rem;
+  color: var(--ws-text-muted);
+}
+
+.ws-admin-auth-form {
+  margin-top: 1rem;
+  display: grid;
+  gap: 0.64rem;
+}
+
+.ws-admin-auth-form label {
+  color: #ffd5bb;
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-family: 'Sora', sans-serif;
+  font-weight: 700;
+}
+
+.ws-admin-input-wrap {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 132, 111, 0.3);
+  background: rgba(27, 33, 46, 0.82);
+  padding: 0.7rem 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ws-admin-input-wrap:focus-within {
+  border-color: rgba(255, 144, 113, 0.66);
+  box-shadow: 0 0 0 3px rgba(255, 118, 104, 0.2);
+}
+
+.ws-admin-input-wrap svg {
+  color: #f5b58f;
+  flex-shrink: 0;
+}
+
+.ws-admin-input-wrap input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #edf2fb;
+  font-size: 0.96rem;
+}
+
+.ws-admin-input-wrap input::placeholder {
+  color: #aeb9cc;
+}
+
+.ws-admin-input-wrap.has-error {
+  border-color: rgba(255, 114, 114, 0.66);
+  box-shadow: 0 0 0 3px rgba(255, 89, 89, 0.16);
+}
+
+.ws-admin-toggle-pass {
+  background: transparent;
+  border: none;
+  color: #f6d1b9;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.ws-admin-form-error {
+  border-radius: 10px;
+  border: 1px solid rgba(255, 116, 116, 0.4);
+  background: rgba(94, 33, 41, 0.64);
+  color: #ffd5d5;
+  padding: 0.5rem 0.62rem;
+  font-size: 0.84rem;
+}
+
+.ws-admin-auth-meta {
+  margin-top: 0.22rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.8rem;
+  color: #ccd5e5;
+  font-size: 0.85rem;
+}
+
+.ws-admin-auth-meta a {
+  color: #ffceaa;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.ws-admin-auth-meta a:hover {
+  text-decoration: underline;
+}
+
+.ws-admin-login-btn {
+  margin-top: 0.34rem;
+  border: none;
+  border-radius: 12px;
+  padding: 0.78rem 1rem;
+  color: #fff;
+  font-size: 0.9rem;
+  font-family: 'Sora', sans-serif;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  cursor: pointer;
+  background: linear-gradient(135deg, var(--ws-primary) 0%, var(--ws-primary-soft) 100%);
+  box-shadow: 0 14px 28px rgba(255, 89, 89, 0.34);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.ws-admin-login-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 34px rgba(255, 89, 89, 0.42);
+}
+
+.ws-admin-login-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.ws-admin-signup-link {
+  margin-top: 0.62rem;
+  color: #cdd5e6;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.ws-admin-signup-link a {
+  color: #ffceaa;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.ws-admin-signup-link a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 960px) {
+  .ws-admin-auth-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .ws-admin-auth-hero {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 119, 104, 0.2);
+  }
+
+  .ws-admin-auth-hero h1 {
+    max-width: 18ch;
+  }
+}
+
+@media (max-width: 640px) {
+  .ws-admin-auth-page {
+    padding: 0.8rem;
+  }
+
+  .ws-admin-auth-hero,
+  .ws-admin-auth-card {
+    padding: 1rem;
+  }
+
+  .ws-admin-auth-meta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .ws-admin-login-btn {
+    width: 100%;
+  }
+}

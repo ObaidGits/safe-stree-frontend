@@ -1,0 +1,38 @@
+.sos-button {
+    background-color: #ff4444;
+    color: white;
+    border: none;
+    border-radius: 50% !important;
+    width: 90px;
+    height: 90px;
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 0 4px 8px rgba(255, 0, 0, 0.3);
+    cursor: pointer;
+    transition: all 0.3s;
+    position: fixed;
+    bottom: 30px;
+    left: 10px;
+    z-index: 100;
+  }
+  
+  .sos-button:hover {
+    background-color: #cc0000;
+    transform: scale(1.05);
+  }
+  
+  .sos-button:active {
+    transform: scale(0.95);
+  }
+  
+  .sos-button:disabled {
+    background-color: #ff9999;
+    cursor: not-allowed;
+  }
+  
+  .error-message {
+    color: #ff4444;
+    text-align: center;
+    margin-top: 10px;
+  }

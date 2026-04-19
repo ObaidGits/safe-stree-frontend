@@ -1,0 +1,34 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--light-gray);
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+#root {
+  overflow-x: clip;
+}
+
+html.ws-scroll-lock,
+body.ws-scroll-lock {
+  overflow: hidden;
+}
