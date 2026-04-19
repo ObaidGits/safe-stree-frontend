@@ -1,5 +1,6 @@
 import { createContext, useContext, useState, useEffect, useCallback, useMemo } from "react";
 import { getUser, getAdmin, refreshUserToken } from "../services/Apis";
+import { setAccessTokenProvider } from "../services/ApiCall";
 
 const AuthContext = createContext();
 
@@ -67,6 +68,15 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     checkAuth();
   }, [checkAuth]);
+
+  // Keep API client Authorization header in sync with in-memory access token.
+  useEffect(() => {
+    setAccessTokenProvider(() => accessToken);
+
+    return () => {
+      setAccessTokenProvider(null);
+    };
+  }, [accessToken]);
 
   /**
    * Login handler - called after successful login API response

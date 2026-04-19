@@ -1,5 +1,19 @@
 import axios from "axios";
 
+let accessTokenProvider = null;
+
+export const setAccessTokenProvider = (provider) => {
+  accessTokenProvider = typeof provider === "function" ? provider : null;
+};
+
+const getAccessToken = () => {
+  try {
+    return accessTokenProvider ? accessTokenProvider() : null;
+  } catch {
+    return null;
+  }
+};
+
 export const commonrequest = async (methods, url, body, header, options = {}) => {
   const baseUrl = import.meta.env.VITE_WS_URL || "http://localhost:8000";
   const { silent = false } = options; // silent mode suppresses error logging
@@ -24,6 +38,11 @@ export const commonrequest = async (methods, url, body, header, options = {}) =>
       ...configHeaders,
       ...normalized,
     };
+  }
+
+  const accessToken = getAccessToken();
+  if (accessToken && !configHeaders.Authorization && !configHeaders.authorization) {
+    configHeaders.Authorization = `Bearer ${accessToken}`;
   }
   // ---------------------------
 
@@ -72,12 +91,19 @@ export const commonrequestWithFile = async (
 ) => {
   const baseUrl = import.meta.env.VITE_WS_URL || "http://localhost:8000";
 
+  const accessToken = getAccessToken();
+  const mergedHeaders = {
+    ...customHeaders,
+  };
+
+  if (accessToken && !mergedHeaders.Authorization && !mergedHeaders.authorization) {
+    mergedHeaders.Authorization = `Bearer ${accessToken}`;
+  }
+
   const config = {
     method: methods,
     url: `${baseUrl}${url}`,
-    headers: {
-      ...customHeaders,
-    },
+    headers: mergedHeaders,
     data: formData,
     withCredentials: true,
   };
